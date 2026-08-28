@@ -39,11 +39,11 @@ Two changes were made. Both are described in full, with derivations, in an accom
 
 ### Optimisation
 
-`cfc_fit` uses multiple optimisation starts where the MATLAB original uses a single start: three scaled starts for the equivalent-confidence-noise fits (steps 3–4), and five `conf_boost` starts by default in the full-model fit (step 5, `boost_init_list`). Bounds are handled by SciPy's Nelder–Mead rather than by `fminsearchbnd`'s reparameterisation. These change which optimum is found on a given dataset, not the model being fitted.
+`cfc_fit` uses multiple optimisation starts where the MATLAB original uses a single start: three scaled starts for the equivalent-confidence-noise fits (steps 3–4), and five `conf_boost` starts by default in the full-model fit (step 5, `boost_init_list`). Bounds are handled by SciPy's Nelder–Mead rather than by `fminsearchbnd`'s reparameterisation. These change only which optimum is found on a given dataset (in the context of the parameter indeterminacy), not the core model itself.
 
-## Module map
+## Scripts
 
-| Module | Corresponds to |
+| Script | Corresponds to |
 | --- | --- |
 | `cfc_core.py` | `cfc_core.m` — P(C = 1) per trial kind |
 | `cfc_fit.py` | `cfc_fit.m` — maximum-likelihood fit, efficiency |
