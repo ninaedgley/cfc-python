@@ -1,11 +1,9 @@
 # CFC Plot Scripts
-
 # Python version of the data-aggregation layer of cfc_plot.m. It builds the per-task Type-1 psychometric summaries (plot_data). 
-# Does not render anything, as figures will be specific to the code's application. This translates the reusable layer.
+# Does not render anything, as figures will be specific to the code's application. This translates the reusable data aggregation layer.
 
 
 import numpy as np
-
 
 def cfc_plot_data(grouped_data):
    
@@ -94,7 +92,6 @@ def cfc_plot_data(grouped_data):
         })
 
     # Type-2 (confidence choice) data, per pair of tasks -> plot_data_intrvl
-
     # response-pairs are indexed : (r1, r2) > 1, 2, 3, or 4, matching MATLAB's bin2dec(char(resp_pair + '0')) + 1. These indices are equivalent to:
     # 1 = (0,0)
     # 2 = (0,1)

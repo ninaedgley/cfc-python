@@ -1,5 +1,6 @@
 # CFC Fit 
 # Fits the generative model - takes `grouped_data` as input, outputs a `cfc_struct` with estimated parameter values.
+
 # Requires 4 arguments:
 #   `model_parameters`: structure defining which parameters are treated as free under the specific experimental application of the model, 
 #   `model_fixed_values`: applies the same principle for fixed parameters,

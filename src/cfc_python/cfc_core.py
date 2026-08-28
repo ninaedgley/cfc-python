@@ -27,8 +27,8 @@
     # 'conf_bias' : overconfidence relative to one of the tasks
 
 # 2 changes to original MATLAB code : a closed-form solution for the confidence-choice probability, and Gauss-Legendre quadrature to replace the previous `dblquad` adaptive nested integration in python.
-# The latter was implemented to reduce runtime (3 full days -> 11h for model recovery exercises), while avoiding numerical instability. See `ideal_closed_form.py` for details on former.
-#
+# The latter was implemented to reduce runtime and avoid numerical instability. See Methods & Materials for details on the closed-form derivation.
+
 # The two are used in different regimes of conf_noise. GL quadrature integrates over the raw sensory evidence, and its integrand tends to a step function as conf_noise -> 0, which polynomial quadrature cannot represent (24 nodes are accurate to ~1e-5 at conf_noise = 0.1, but wrong in the 3rd decimal by conf_noise = 0.01, and more nodes have a very marginal effect). 
 # The closed form is exact at every conf_noise, so it takes over below `closed_form_threshold`, where the two agree to ~3e-6.
 
@@ -36,7 +36,7 @@
 import numpy as np
 import scipy.stats as stats
 from numpy.polynomial.legendre import leggauss
-from .ideal_closed_form import ideal_limit_choice_prob
+from .closed_form import closed_form_choice_prob
 
 closed_form_threshold = 0.1  # below this conf_noise, uses the closed form instead of GL quadrature. The switch introduces no discontinuity, as the two agree to ~3e-6
 
@@ -110,7 +110,7 @@ def cfc_core(grouped_data, model_params_vals, n_nodes=24):
 
        # Closed form rewrite : exact at every conf_noise, the only accurate option as conf_noise -> 0. See ideal_closed_form.py for details and function definition
         if below_floor[tsk1_ind] or below_floor[tsk2_ind]:
-           choose1_num, joint_prob = ideal_limit_choice_prob(
+           choose1_num, joint_prob = closed_form_choice_prob(
                row,
                sn1, sc1, conf_noise_task[tsk1_ind], conf_boost_task[tsk1_ind], conf_crit_task[tsk1_ind], conf_bias_task[tsk1_ind],
                sn2, sc2, conf_noise_task[tsk2_ind], conf_boost_task[tsk2_ind], conf_crit_task[tsk2_ind], conf_bias_task[tsk2_ind],

@@ -10,7 +10,8 @@
 # C_i = interval i's decision-signed confidence evidence, which can be expressed as an affine function of U_i.
 
 # The two confidence-noise terms are independent Normals, so together they are one further independent Normal Z with a combined stdev S = sqrt(conf_noise1^2 + conf_noise2^2).
-# Combined with the two perceptual quadrant constraints, this becomes 3 linear constraints on (U1, U2, Z), essentially a trivariate Gaussian orthant probability. See further details in Methods & Materials
+# Combined with the two perceptual quadrant constraints, this becomes 3 linear constraints on (U1, U2, Z), essentially a trivariate Gaussian orthant probability. 
+# See the detailed derivation in Methods & Materials
  
  
 import numpy as np
@@ -23,7 +24,7 @@ tvn_nodes = 64
 _tvn_z, _tvn_w = leggauss(tvn_nodes)
  
  
-def ideal_limit_choice_prob(row, sens_noise1, sens_crit1, conf_noise1, conf_boost1, conf_crit1, conf_bias1, sens_noise2, sens_crit2, conf_noise2, conf_boost2, conf_crit2, conf_bias2, intrvl_bias):
+def closed_form_choice_prob(row, sens_noise1, sens_crit1, conf_noise1, conf_boost1, conf_crit1, conf_bias1, sens_noise2, sens_crit2, conf_noise2, conf_boost2, conf_crit2, conf_bias2, intrvl_bias):
  
     mu1, mu2, resp1, resp2 = row[0], row[1], row[2], row[3] # resp = perceptual judgements
  
