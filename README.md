@@ -4,7 +4,7 @@ A Python translation of the confidence forced-choice (CFC) model of Mamassian & 
 
 The original MATLAB toolbox is by Pascal Mamassian and is available at <https://github.com/mamassian/cfc>. This repository is a translation of that toolbox, and keeps the generative model, its parameters, and its predictions unchanged.
 
-> **Status.** Not yet publicly released. Shared directly with collaborators for review. A versioned DOI will be assigned at release, accompanying the forthcoming experimental preprint.
+**Status.** Not yet publicly released, temporarily left accessible to collaborators for review. A versioned DOI will be assigned at release, accompanying the forthcoming experimental preprint.
 
 ## Installation
 
