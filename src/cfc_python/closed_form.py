@@ -1,5 +1,5 @@
 
-# ideal_closed_form.py
+# closed_form.py
 # Closed form replacement for cfc_core's original dblquad integral, ensures that cfc_core remains valid when conf_noise is small, including the conf_noise -> 0 limit. This occurs for all ideal/super-ideal reference computations, causing numerical issues and instability in the fits
  
 # U1 = (x1-mu1)/sens_noise1

@@ -108,7 +108,7 @@ def cfc_core(grouped_data, model_params_vals, n_nodes=24):
         sn1, sc1 = sens_noise_task[tsk1_ind], sens_crit_task[tsk1_ind]
         sn2, sc2 = sens_noise_task[tsk2_ind], sens_crit_task[tsk2_ind]
 
-       # Closed form rewrite : exact at every conf_noise, the only accurate option as conf_noise -> 0. See ideal_closed_form.py for details and function definition
+       # Closed form rewrite : exact at every conf_noise, the only accurate option as conf_noise -> 0. See closed_form.py for details and function definition
         if below_floor[tsk1_ind] or below_floor[tsk2_ind]:
            choose1_num, joint_prob = closed_form_choice_prob(
                row,

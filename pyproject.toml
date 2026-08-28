@@ -1,15 +1,15 @@
 [project]
 name = "cfc-python"
 version = "0.1.0"
-description = "Add your description here"
+description = "Python-translation of Mamassian & de Gardelle (2022) CFC model toolbox"
 readme = "README.md"
 authors = [
     { name = "ninaedgley", email = "nina.edgley@gmail.com" }
 ]
-requires-python = ">=3.13"
+requires-python = ">=3.10"
 dependencies = [
-    "numpy>=2.5.2",
-    "scipy>=1.18.1",
+    "numpy>=1.24",
+    "scipy>=1.9",
 ]
 
 [project.scripts]
